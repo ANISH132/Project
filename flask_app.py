@@ -146,7 +146,7 @@ def gen_frames():
                 faceDist = face_recognition.face_distance(encodeListKnown, encodeFace)
                 matchIndex = np.argmin(faceDist)
 
-                if matches[matchIndex]:
+                if matches[matchIndex] and (sum(faceDist)/3)<0.60:
                     name = classNames[matchIndex].upper()
                     y1,x1,y2,x2 = faceLoc
                     y1,x1,y2,x2 = y1*4,x1*4,y2*4,x2*4
@@ -154,6 +154,14 @@ def gen_frames():
                     cv2.rectangle(img,(x1,y1-35),(x2,y2),(0,255,0))
                     cv2.putText(img,name,(x1+6,y2-6),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2)
                     markDB(name)
+                else:
+                    name="Unknown"
+                    y1,x1,y2,x2 = faceLoc
+                    y1,x1,y2,x2 = y1*4,x1*4,y2*4,x2*4
+                    cv2.rectangle(img,(x1,y1),(x2,y2),(0,255,0),2)
+                    cv2.rectangle(img,(x1,y1-35),(x2,y2),(0,255,0))
+                    cv2.putText(img,name,(x1+6,y2-6),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2)
+        
                 
 
             ret, buffer =cv2.imencode('.png',img)
