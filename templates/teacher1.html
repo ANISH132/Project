@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; font-weight: 700;">ATTENDANCE</h1>
+        <div class="row">
+            <div class="col-lg-3">
+                <a href="http://localhost:5000/Attend/Present"><h5 style="background: linear-gradient(90deg, rgb(247, 247, 48), rgb(200, 200, 38));">Present</h5></a>
+            </div>
+            <div class="col-lg-3">
+                <a href="http://localhost:5000/Attend/Absent"><h5 style="background: linear-gradient(90deg, black, rgb(70, 70, 70));">Absent</h5></a>
+            </div>
+            <div class="col-lg-3" id="allRec">
+                <a href="http://localhost:5000/all"><h5 style="background: linear-gradient(90deg, darkcyan, rgb(5, 99, 99));">Complete</h5></a>
+            </div>
+            <div class="col-lg-3" >
+                <a href="http://localhost:5000/updateDataA"><h5 style="background: linear-gradient(90deg, darkcyan, rgb(5, 99, 99));">Refresh</h5></a>
+            </div>
+            
+        </div>
+        <div style='display: flex;'>
+            <button class="btn btn-dark" onclick="back()" style="margin: 20px auto;width:fit-content ">Done</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+    }
+    .col-lg-3{
+        padding: 20px;
+    }
+    .col-lg-3 a{
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .col-lg-3 h5{
+        font-size: 30px!important;
+        padding: 50px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 15px 5px lightgray;
+    }
+    .col-lg-3 h5:hover{
+        transition: 0.5s;
+        box-shadow: 0 0 15px 5px gray;
+    }
+</style>
+<script>
+     function back() {
+        window.history.go(-1);
+    }  
+</script>
